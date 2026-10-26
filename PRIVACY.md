@@ -1,4 +1,4 @@
-# Singapore Food Quick Look — privacy policy draft
+# Singapore Food Quick Look — privacy policy
 
 **Publisher:** GetLean Clinic. **Last updated:** 26 October 2026.
 
@@ -8,6 +8,6 @@ The extension does not save or transmit highlighted text, food searches, label v
 
 The popup contains optional links to SG FoodID, its data licence and a GetLean Clinic food article. If you choose to click one, your browser opens that separate site and its own privacy terms apply. The extension does not attach your highlighted text or label values to those URLs.
 
-The extension uses `activeTab` and `scripting` solely for the user-initiated highlighted-text lookup. It does not request persistent access to every website. The use of information received through Chrome APIs adheres to the [Chrome Web Store User Data Policy](https://developer.chrome.com/docs/webstore/user_data), including its Limited Use requirements.
+The extension uses `activeTab` and `scripting` solely for the user-initiated highlighted-text lookup. It does not request persistent access to every website.
 
-For privacy questions, use the contact route published on [GetLean Clinic](https://www.getleanclinic.sg/). This policy should be hosted at a stable, public URL before submitting the extension to the Chrome Web Store. If the extension's data practices change, update this policy and the Store disclosures before release.
+For privacy questions, use the contact route published on [GetLean Clinic](https://www.getleanclinic.sg/contact). If the extension's data practices change, this policy and the relevant store disclosures will be updated before release.
