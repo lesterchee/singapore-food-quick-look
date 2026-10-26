@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Singapore Food Quick Look",
+  "short_name": "Food Quick Look",
+  "version": "0.1.0",
+  "description": "Look up a small Singapore food reference list or calculate energy from a nutrition label.",
+  "action": {
+    "default_title": "Food Quick Look",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon-16.png",
+      "48": "icon-48.png"
+    }
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "permissions": ["activeTab", "scripting"]
+}

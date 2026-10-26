@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Singapore Food Quick Look</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <span class="eyebrow">GetLean Clinic · Food reference</span>
+      <h1>Singapore Food Quick Look</h1>
+      <p>Check a named food’s reference serving while browsing a menu.</p>
+    </header>
+    <section aria-labelledby="lookup-heading">
+      <h2 id="lookup-heading">Look up a food</h2>
+      <label for="query">Food name</label>
+      <div class="search-row">
+        <input id="query" type="search" placeholder="e.g. chicken rice" autocomplete="off" autofocus>
+        <button id="selection" type="button" title="Read highlighted text from this tab">Use selection</button>
+      </div>
+      <p id="selection-status" class="hint" role="status">Highlight a food name on a page, then open this popup and press Use selection.</p>
+      <div id="results" aria-live="polite"></div>
+    </section>
+    <section aria-labelledby="label-heading">
+      <h2 id="label-heading">Food not listed? Use its label</h2>
+      <p class="hint">Enter the label’s energy per 100 g and the amount you will eat. This only does the arithmetic.</p>
+      <form id="label-form">
+        <label for="per100">Energy on label (kcal per 100 g)</label>
+        <input id="per100" type="number" min="0" max="1000" step="any" inputmode="decimal" required>
+        <label for="grams">Amount (g)</label>
+        <input id="grams" type="number" min="0.1" max="5000" step="any" inputmode="decimal" required>
+        <button type="submit">Calculate</button>
+      </form>
+      <p id="label-result" role="status"></p>
+    </section>
+    <footer>
+      <p>Reference servings vary by recipe and stall. No personal nutrition target or medical advice is calculated.</p>
+      <p class="attribution">Contains information from <a href="https://pphtpc.hpb.gov.sg/web/sgfoodid/" target="_blank" rel="noopener noreferrer">Singapore Food Insights Database (SG FoodID)</a>, accessed 26 October 2026 from Health Promotion Board, made available under <a href="https://file.go.gov.sg/termsofuse-hpbsgfoodid.pdf" target="_blank" rel="noopener noreferrer">its licence</a>. Data is provided as is and may have limitations. HPB does not endorse this extension.</p>
+      <a class="learn" href="https://www.getleanclinic.sg/articles/hawker-dishes-protein-per-calorie" target="_blank" rel="noopener noreferrer">See food portions in context ↗</a>
+    </footer>
+  </main>
+  <script src="data.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
