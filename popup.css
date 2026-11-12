@@ -20,10 +20,18 @@ button:hover { background: #253a2b; }
 .hint { color: #59665d; font-size: 12px; }
 .food-card { background: white; border: 1px solid #d9ddd4; border-radius: 7px; margin: 8px 0; padding: 10px; }
 .food-card p { margin: 4px 0 0; }
+.food-card .figures { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-top: 4px; }
 .food-card .energy { font-size: 21px; font-weight: 700; color: #344a38; }
+.food-card .protein { font-size: 17px; font-weight: 700; color: #6a4f2a; }
+.food-card .source { color: #59665d; font-size: 12px; }
+.food-card .result-link { display: inline-block; font-size: 12px; font-weight: 700; margin-top: 6px; }
+.food-card .result-link::after, .learn::after { content: " \2197"; }
 #label-form button { margin-top: 12px; width: 100%; }
 #label-result { font-weight: 700; }
 footer { padding-top: 12px; font-size: 12px; }
 .attribution { color: #59665d; }
 a { color: #34563d; }
+.whats-new { color: #59665d; font-size: 12px; }
+.brand { color: #17332a; font-weight: 700; margin-top: 12px; }
+.rate { text-align: right; margin: 6px 0 0; }
 .learn { display: block; background: #e7e9df; border-radius: 5px; font-weight: 700; margin-top: 12px; padding: 9px; text-align: center; text-decoration: none; }

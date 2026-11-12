@@ -3,6 +3,38 @@ const results = document.getElementById("results");
 const selectionStatus = document.getElementById("selection-status");
 const labelResult = document.getElementById("label-result");
 
+function grams(value) {
+  return Number(value).toLocaleString("en-SG", { maximumFractionDigits: 1 });
+}
+
+function foodCard(food) {
+  const card = document.createElement("article");
+  card.className = "food-card";
+  const title = document.createElement("h3");
+  title.textContent = food.name;
+  const figures = document.createElement("p");
+  figures.className = "figures";
+  const energy = document.createElement("span");
+  energy.className = "energy";
+  energy.textContent = `${food.kcal.toLocaleString("en-SG")} kcal`;
+  const protein = document.createElement("span");
+  protein.className = "protein";
+  protein.textContent = `${grams(food.protein)} g protein`;
+  figures.append(energy, protein);
+  const source = document.createElement("p");
+  source.className = "source";
+  source.textContent = `${food.serving}, ${grams(food.grams)} ${food.unit} · SG FoodID (HPB) standard serving · ${food.source}, ${food.year}`;
+  const page = GETLEAN_PAGES[food.page];
+  const link = document.createElement("a");
+  link.className = "result-link";
+  link.href = page.href;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = page.title;
+  card.append(title, figures, source, link);
+  return card;
+}
+
 function showResults(value) {
   results.replaceChildren();
   const term = value.trim();
@@ -12,21 +44,9 @@ function showResults(value) {
   intro.className = "hint";
   intro.textContent = matches.length
     ? `${matches.length} matching reference ${matches.length === 1 ? "serving" : "servings"}. Choose the exact preparation and portion.`
-    : "No matching reference serving. Use the nutrition-label calculator below if you have the label.";
+    : "Not in the list yet. Use the label calculator below.";
   results.append(intro);
-  for (const food of matches) {
-    const card = document.createElement("article");
-    card.className = "food-card";
-    const title = document.createElement("h3");
-    title.textContent = food.name;
-    const amount = document.createElement("p");
-    amount.className = "energy";
-    amount.textContent = `${food.kcal} kcal`;
-    const detail = document.createElement("p");
-    detail.textContent = `${food.serving} · SG FoodID ${food.source.toLowerCase()}, ${food.year}`;
-    card.append(title, amount, detail);
-    results.append(card);
-  }
+  for (const food of matches) results.append(foodCard(food));
 }
 
 query.addEventListener("input", () => showResults(query.value));
@@ -56,9 +76,9 @@ document.getElementById("selection").addEventListener("click", async () => {
 document.getElementById("label-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const per100 = document.getElementById("per100").value;
-  const grams = document.getElementById("grams").value;
-  const total = labelKcal(per100, grams);
+  const amount = document.getElementById("grams").value;
+  const total = labelKcal(per100, amount);
   labelResult.textContent = total === null
     ? "Enter a valid label value (0–1,000 kcal per 100 g) and amount (over 0 to 5,000 g)."
-    : `About ${total.toLocaleString("en-SG")} kcal for ${Number(grams).toLocaleString("en-SG")} g, calculated from the label you entered.`;
+    : `About ${total.toLocaleString("en-SG")} kcal for ${Number(amount).toLocaleString("en-SG")} g, calculated from the label you entered.`;
 });
